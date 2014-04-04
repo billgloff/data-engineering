@@ -2,13 +2,15 @@ p
   h1.text-center style='padding-bottom: 50px'
     | Data Importer
 
-.col-lg-4.col-sm-4.col-12.center-block
-  div.input-group
-    span.input-group-btn
-      span.btn.btn-primary.btn-file
-        = form_tag action: :import, multipart: true, class:'text-center'
+= form_tag import_path, multipart: true
+  .col-lg-4.col-sm-4.col-12.center-block
+    div.input-group
+      span.input-group-btn
+        span.btn.btn-primary.btn-file        
           | Browse...
           = file_field_tag 'document'
-    = text_field_tag '', '', class:'form-control', readonly: :readonly
-  span.help-block
-    | Browse and select a tab delimited file
+      = text_field_tag '', '', class:'form-control', readonly: :readonly    
+    span.help-block style='padding-bottom: 20px'
+      | Browse and select a tab delimited file
+    div
+      = submit_tag 'Submit', class: 'btn btn-primary'
