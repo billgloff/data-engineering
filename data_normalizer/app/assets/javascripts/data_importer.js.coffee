@@ -2,16 +2,20 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).on "change", ".btn-file :file", ->
-	input = $(this)
-	label = input.val().replace(/\\/g, "/")
-		.replace(/.*\//, "")
-	input.trigger 'fileselect', [label]
-	return
+ready = ->
+	$(".btn-file :file").on 'change', ->
+		input = $(this)
+		label = input.val().replace /\\/g, "/"
+		label = label.replace /.*\//, ""
+		input.trigger 'fileselect', [label]
+		return
 
-$(document).ready ->
 	$(".btn-file :file").on 'fileselect', (event, label) ->
   		input = $(this).parents(".input-group").find(":text")
   		input.val(label)
   		return
+  		
   	return
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
