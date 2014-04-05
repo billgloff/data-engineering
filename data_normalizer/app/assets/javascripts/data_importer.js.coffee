@@ -3,14 +3,15 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on "change", ".btn-file :file", ->
-  input = $(this)
-  label = input.val().replace(/\\/g, "/").replace(/.*\//, "")
-  input.trigger "fileselect", [label]
-  return
+	input = $(this)
+	label = input.val().replace(/\\/g, "/")
+		.replace(/.*\//, "")
+	input.trigger 'fileselect', [label]
+	return
 
 $(document).ready ->
-  $(".btn-file :file").on "fileselect", (event, label) ->
-    input = $(this).parents(".input-group").find(":text")
-    input.val label    
-    return
-  return
+	$(".btn-file :file").on 'fileselect', (event, label) ->
+  		input = $(this).parents(".input-group").find(":text")
+  		input.val(label)
+  		return
+  	return
