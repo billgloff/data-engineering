@@ -9,6 +9,13 @@ img {
 // override for the 'Home' navigation link
 .navbar-brand {
   font-size: inherit;
+  color: #ccc;
+  background-color: #555;
+  }
+.navbar {
+  font-size: inherit;
+  color: #ccc;
+  background-color: #555;
   }
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
@@ -35,6 +42,7 @@ img {
 main {
   @extend .container;
   background-color: #fff;
+  color: #555;
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
@@ -42,4 +50,7 @@ main {
 section {
   @extend .row;
   margin-top: 20px;
+  }
+h1, h2, h3, h4, h5, h6 {
+  color: #555;  
   }
